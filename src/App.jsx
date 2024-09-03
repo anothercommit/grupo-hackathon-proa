@@ -9,7 +9,7 @@ import Context from "./Componentes/Context";
 
 function App() {
     const [coordenadas, setCoordenadas] = useState({ latitud: "", longitud: "" });
-    const baseUrl = "http://api.openweathermap.org/data/2.5";
+    const baseUrl = "https://api.openweathermap.org/data/2.5";
 
     const options = {
         enableHighAccuracy: true,
@@ -48,9 +48,8 @@ function App() {
     return (
         <>
             <Navbar />
-            <Context />
-            <Footer />
             <button onClick={handleButton}>Ver calidad de aire</button>
+            <Footer />
         </>
     );
 }
