@@ -18,11 +18,8 @@ body {
   background-color: #C8102E;
   color: #FFFFFF;
   text-align: center;
-  width: 100%;
   position: fixed;
-  /* Esto posiciona el navbar en la parte superior */
   top: 0;
-  /* Asegura que el navbar esté pegado a la parte superior */
   width: 100%;
 }
 
