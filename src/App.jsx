@@ -6,6 +6,14 @@ import Footer from './Componentes/Footer'
 import Navbar from './Componentes/Navbar'
 import Context from './Componentes/Context'
 
+//componentes
+import Footer from "./Componentes/Footer";
+import Navbar from "./Componentes/Navbar";
+import Context from "./Componentes/Context";
+
+//componentes
+import Footer from "./Componentes/Footer";
+import Navbar from "./Componentes/Navbar";
 
 function App() {
   axios.get('').then(
@@ -17,7 +25,7 @@ function App() {
       <Context />
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
