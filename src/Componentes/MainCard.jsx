@@ -3,7 +3,7 @@ function MainCard({ data }) {
         <>
             <p>ashei</p>
         </>
-    )
+    );
 }
 
-export default MainCard
+export default MainCard;

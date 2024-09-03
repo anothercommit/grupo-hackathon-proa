@@ -8,7 +8,10 @@ import Navbar from "./Componentes/Navbar";
 import MainCard from "./Componentes/MainCard";
 
 function App() {
-    const [coordenadas, setCoordenadas] = useState({ latitud: "", longitud: "" });
+    const [coordenadas, setCoordenadas] = useState({
+        latitud: "",
+        longitud: "",
+    });
     const [datos, setDatos] = useState();
 
     const baseUrl = "https://api.openweathermap.org/data/2.5";
@@ -21,26 +24,30 @@ function App() {
     };
 
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition((pos) => {
-            const crd = pos.coords;
-            console.log(crd.latitude);
-            console.log(crd.longitude);
+        navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                const crd = pos.coords;
+                console.log(crd.latitude);
+                console.log(crd.longitude);
 
-            const nuevasCoordenadas = {
-                latitud: crd.latitude,
-                longitud: crd.longitude,
-            }
+                const nuevasCoordenadas = {
+                    latitud: crd.latitude,
+                    longitud: crd.longitude,
+                };
 
-            setCoordenadas(nuevasCoordenadas);
-        }, (err) => {
-            console.warn(`ERROR(${err.code}): ${err.message}`);
-        }, options);
+                setCoordenadas(nuevasCoordenadas);
+            },
+            (err) => {
+                console.warn(`ERROR(${err.code}): ${err.message}`);
+            },
+            options
+        );
     }, []);
 
     const handleButton = () => {
         axios
             .get(
-                `${baseUrl}/air_pollution?lat=${coordenadas.latitud}&lon=${coordenadas.longitud}&appid=${API_KEY}`,
+                `${baseUrl}/air_pollution?lat=${coordenadas.latitud}&lon=${coordenadas.longitud}&appid=${API_KEY}`
             )
             .then((res) => {
                 console.log(res.data);
@@ -50,16 +57,19 @@ function App() {
     };
 
     const renderMainCard = () => {
-        return (
-            <><p>hola</p></>
-        )
-    }
+        if (datos) {
+            console.log(datos);
+            return <MainCard data={datos} />;
+        }
+    };
 
     return (
         <>
             <Navbar />
             {renderMainCard()}
-            <button className="boton" onClick={handleButton}>Ver calidad de aire</button>
+            <button className="boton" onClick={handleButton}>
+                Ver calidad de aire
+            </button>
             <Footer />
         </>
     );
