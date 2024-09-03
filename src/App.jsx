@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import dotenv from "dotenv"
 import "./App.css";
 
 //componentes
@@ -8,11 +7,10 @@ import Footer from "./Componentes/Footer";
 import Navbar from "./Componentes/Navbar";
 import Context from "./Componentes/Context";
 
-dotenv.config();
 function App() {
     const [coordenadas, setCoordenadas] = useState({ latitud: "", longitud: "" });
     const baseUrl = "https://api.openweathermap.org/data/2.5";
-
+    const API_KEY = "2ca3a7c5d310204cd624d782488f7690";
 
     const options = {
         enableHighAccuracy: true,
@@ -29,10 +27,8 @@ function App() {
             latitud: crd.latitude,
             longitud: crd.longitude,
         }
-        console.log(nuevasCoordenadas)
 
         setCoordenadas(nuevasCoordenadas);
-        console.log(coordenadas);
     }
 
     function error(err) {
@@ -46,15 +42,16 @@ function App() {
     const handleButton = () => {
         axios
             .get(
-                `${baseUrl}/air_pollution?lat=${coordenadas.latitud}&lon=${coordenadas.longitud}&appid=${import.meta.env.VITE_API_KEY}`,
+                `${baseUrl}/air_pollution?lat=${coordenadas.latitud}&lon=${coordenadas.longitud}&appid=${API_KEY}`,
             )
-            .then((res) => console.log(res)).catch((err) => console.log(err));
+            .then((res) => console.log(res.data)).catch((err) => console.log(err));
     };
 
 
     return (
         <>
             <Navbar />
+            <Context />
             <button onClick={handleButton}>Ver calidad de aire</button>
             <Footer />
         </>

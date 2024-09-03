@@ -1,7 +1,7 @@
 function Navbar() {
   return (
     <>
-      <nav className="navbar">Hellfish </nav>
+      <nav className="navbar">Hellfish</nav>
     </>
   )
 }
