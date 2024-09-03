@@ -57,8 +57,9 @@ function App() {
     return (
         <>
             <Navbar />
-            {datos &&
+            {datos && <>
                 <MainCard data={datos} />
+            </>
             }
             <button className="boton" onClick={handleButton}>Ver calidad de aire</button>
             <Footer />
