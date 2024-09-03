@@ -10,17 +10,15 @@
 
 }
 
-.navbar {
-  background-color: #FFA500;
-}
-
 button {
-  color: red;
-  border-color: white;
-  background-color: aliceblue;
+  background-color: beige;
 
 }
 
 body {
   background-color: #C8102E;
+}
+
+.navbar {
+  background-color: #FFA500;
 }
