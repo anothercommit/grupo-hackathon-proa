@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import dotenv from "dotenv"
 import "./App.css";
 
 //componentes
@@ -10,6 +11,8 @@ import Context from "./Componentes/Context";
 function App() {
     const [coordenadas, setCoordenadas] = useState({ latitud: "", longitud: "" });
     const baseUrl = "https://api.openweathermap.org/data/2.5";
+
+    dotenv.config();
 
     const options = {
         enableHighAccuracy: true,
@@ -26,6 +29,7 @@ function App() {
             latitud: crd.latitude,
             longitud: crd.longitude,
         }
+        console.log(nuevasCoordenadas)
 
         setCoordenadas(nuevasCoordenadas);
         console.log(coordenadas);
