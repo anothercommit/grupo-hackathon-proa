@@ -8,29 +8,51 @@ import Navbar from "./Componentes/Navbar";
 import Context from "./Componentes/Context";
 
 function App() {
-  const [coordenadas, setCoordenadas] = useState({ latitud: "", longitud: "" });
-  const baseUrl = "http://api.openweathermap.org/data/2.5";
+    const [coordenadas, setCoordenadas] = useState({ latitud: "", longitud: "" });
+    const baseUrl = "http://api.openweathermap.org/data/2.5";
 
-  useEffect(() => {}, []);
+    const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+    };
 
-  const handleButton = () => {
-    axios
-      .get(
-        `${baseUrl}/air_pollution?lat=${coordenadas.latitud}&lon=${coordenadas.longitud}&appid=${process.env.API_KEY}`,
-      )
-      .then((res) => console.log(res).catch((err) => console.log(err)));
-  };
+    function success(pos) {
+        const crd = pos.coords;
 
-  axios.get("").then((res) => console.log(res.data));
+        const nuevasCoordenadas = {
+            latitud: crd.latitud,
+            longitud: crd.longitude,
+        }
 
-  return (
-    <>
-      <Navbar />
-      <Context />
-      <Footer />
-      <button onClick={handleButton}>Ver calidad de aire</button>
-    </>
-  );
+        setCoordenadas({ nuevasCoordenadas });
+    }
+
+    function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+    }, []);
+
+    const handleButton = () => {
+        axios
+            .get(
+                `${baseUrl}/air_pollution?lat=${coordenadas.latitud}&lon=${coordenadas.longitud}&appid=${process.env.API_KEY}`,
+            )
+            .then((res) => console.log(res).catch((err) => console.log(err)));
+    };
+
+
+    return (
+        <>
+            <Navbar />
+            <Context />
+            <Footer />
+            <button onClick={handleButton}>Ver calidad de aire</button>
+        </>
+    );
 }
 
 export default App;
