@@ -9,7 +9,7 @@ import MainCard from "./Componentes/MainCard";
 
 function App() {
     const [coordenadas, setCoordenadas] = useState({ latitud: "", longitud: "" });
-    const [datos, setDatos] = useState({});
+    const [datos, setDatos] = useState();
 
     const baseUrl = "https://api.openweathermap.org/data/2.5";
     const API_KEY = "2ca3a7c5d310204cd624d782488f7690";
@@ -57,7 +57,9 @@ function App() {
     return (
         <>
             <Navbar />
-            <MainCard data={datos} />
+            {datos &&
+                <MainCard data={datos} />
+            }
             <button className="boton" onClick={handleButton}>Ver calidad de aire</button>
             <Footer />
         </>
