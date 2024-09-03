@@ -13,7 +13,7 @@ function App() {
         longitud: "",
     });
     const [datos, setDatos] = useState();
-    const [historial, setHistorial] = useState();
+    const [historial, setHistorial] = useState([]);
 
     const baseUrl = "https://api.openweathermap.org/data/2.5";
     const API_KEY = "2ca3a7c5d310204cd624d782488f7690";
