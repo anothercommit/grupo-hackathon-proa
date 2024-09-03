@@ -22,7 +22,7 @@ function App() {
         console.log(crd.latitude);
         console.log(crd.longitude);
         const nuevasCoordenadas = {
-            latitud: crd.latitud,
+            latitud: crd.latitude,
             longitud: crd.longitude,
         }
 
