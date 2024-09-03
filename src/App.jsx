@@ -5,10 +5,12 @@ import "./App.css";
 //componentes
 import Footer from "./Componentes/Footer";
 import Navbar from "./Componentes/Navbar";
-import Context from "./Componentes/Context";
+import Card from "./Componentes/Card";
 
 function App() {
     const [coordenadas, setCoordenadas] = useState({ latitud: "", longitud: "" });
+    const [datos, setDatos] = useState({});
+
     const baseUrl = "https://api.openweathermap.org/data/2.5";
     const API_KEY = "2ca3a7c5d310204cd624d782488f7690";
 
@@ -44,15 +46,19 @@ function App() {
             .get(
                 `${baseUrl}/air_pollution?lat=${coordenadas.latitud}&lon=${coordenadas.longitud}&appid=${API_KEY}`,
             )
-            .then((res) => console.log(res.data)).catch((err) => console.log(err));
+            .then((res) => {
+                console.log(res.data);
+                setDatos(res.data);
+            })
+            .catch((err) => console.log(err));
     };
 
 
     return (
         <>
             <Navbar />
-            <Context />
-            <button onClick={handleButton}>Ver calidad de aire</button>
+            <Card data={datos} />
+            <button className="boton" onClick={handleButton}>Ver calidad de aire</button>
             <Footer />
         </>
     );

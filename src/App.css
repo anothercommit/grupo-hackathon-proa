@@ -1,17 +1,11 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .footer {
   background-color: #C8102E;
   color: #FFFFFF;
   text-align: center;
   padding: 15px 0;
-  position: relative;
+  position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
 
 }
@@ -24,6 +18,12 @@ body {
 .navbar {
   background-color: #C8102E;
   color: #FFFFFF;
-  text-align: right;
+  text-align: center;
   width: 100%;
+}
+
+.boton {
+  background-color: #C8102E;
+  color: white;
+  text-align: center;
 }
