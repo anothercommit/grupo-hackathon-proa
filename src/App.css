@@ -6,7 +6,7 @@
 }
 
 .footer {
-  background-color: #FFA500;
+  background-color: #C8102E;
   color: #FFFFFF;
   text-align: center;
   padding: 20px 0;
@@ -22,10 +22,10 @@ button {
 }
 
 body {
-  background-color: #C8102E;
+  background-color: white
 }
 
 .navbar {
-  background-color: #FFA500;
+  background-color: #C8102E;
 
 }
