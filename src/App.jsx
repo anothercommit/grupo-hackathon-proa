@@ -56,20 +56,18 @@ function App() {
             .catch((err) => console.log(err));
     };
 
-    const renderMainCard = () => {
-        if (datos) {
-            console.log(datos);
-            return <MainCard data={datos} />;
-        }
-    };
-
     return (
         <>
             <Navbar />
-            {renderMainCard()}
-            <button className="boton" onClick={handleButton}>
-                Ver calidad de aire
-            </button>
+
+            <div className="center">
+                {datos && <MainCard data={datos} />}
+
+                <button className="boton" onClick={handleButton}>
+                    Ver calidad de aire
+                </button>
+            </div>
+
             <Footer />
         </>
     );
