@@ -20,25 +20,21 @@ function App() {
         maximumAge: 0,
     };
 
-    function success(pos) {
-        const crd = pos.coords;
-        console.log(crd.latitude);
-        console.log(crd.longitude);
-
-        const nuevasCoordenadas = {
-            latitud: crd.latitude,
-            longitud: crd.longitude,
-        }
-
-        setCoordenadas(nuevasCoordenadas);
-    }
-
-    function error(err) {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-    }
-
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition(success, error, options);
+        navigator.geolocation.getCurrentPosition((pos) => {
+            const crd = pos.coords;
+            console.log(crd.latitude);
+            console.log(crd.longitude);
+
+            const nuevasCoordenadas = {
+                latitud: crd.latitude,
+                longitud: crd.longitude,
+            }
+
+            setCoordenadas(nuevasCoordenadas);
+        }, (err) => {
+            console.warn(`ERROR(${err.code}): ${err.message}`);
+        }, options);
     }, []);
 
     const handleButton = () => {
@@ -53,14 +49,17 @@ function App() {
             .catch((err) => console.log(err));
     };
 
+    const renderMainCard = () => {
+        if (datos)
+            return (
+                <MainCard data={datos} />
+            )
+    }
 
     return (
         <>
             <Navbar />
-            {datos && <>
-                <MainCard data={datos} />
-            </>
-            }
+            {renderMainCard()}
             <button className="boton" onClick={handleButton}>Ver calidad de aire</button>
             <Footer />
         </>
