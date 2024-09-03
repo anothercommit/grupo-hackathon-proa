@@ -19,7 +19,8 @@ function App() {
 
     function success(pos) {
         const crd = pos.coords;
-
+        console.log(crd.latitud);
+        console.log(crd.longitude);
         const nuevasCoordenadas = {
             latitud: crd.latitud,
             longitud: crd.longitude,
