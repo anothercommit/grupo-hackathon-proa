@@ -1,9 +1,11 @@
 function Footer() {
-  return (
-    <>
-      <footer className="footer">Esta pagina fue creada por: Domenech, Rodriguez, Gonzalez, Loyola, Vocos, Acosta, Vallejo</footer>
-    </>
-  )
+    return (
+        <>
+            <footer className="footer">
+                Esta pagina fue creada por el grupo Hellfish
+            </footer>
+        </>
+    );
 }
 
-export default Footer
+export default Footer;
