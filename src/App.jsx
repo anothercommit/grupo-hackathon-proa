@@ -21,12 +21,13 @@ function App() {
         const crd = pos.coords;
         console.log(crd.latitude);
         console.log(crd.longitude);
+
         const nuevasCoordenadas = {
             latitud: crd.latitude,
             longitud: crd.longitude,
         }
 
-        setCoordenadas({ nuevasCoordenadas });
+        setCoordenadas(nuevasCoordenadas);
         console.log(coordenadas);
     }
 
