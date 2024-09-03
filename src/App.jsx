@@ -57,7 +57,7 @@ function App() {
     return (
         <>
             <Navbar />
-            {/* <Card data={datos} /> */}
+            <MainCard data={datos} />
             <button className="boton" onClick={handleButton}>Ver calidad de aire</button>
             <Footer />
         </>
