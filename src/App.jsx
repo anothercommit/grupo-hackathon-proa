@@ -5,7 +5,7 @@ import "./App.css";
 //componentes
 import Footer from "./Componentes/Footer";
 import Navbar from "./Componentes/Navbar";
-import Card from "./Componentes/Card";
+import MainCard from "./Componentes/MainCard";
 
 function App() {
     const [coordenadas, setCoordenadas] = useState({ latitud: "", longitud: "" });
@@ -57,7 +57,7 @@ function App() {
     return (
         <>
             <Navbar />
-            <Card data={datos} />
+            {/* <Card data={datos} /> */}
             <button className="boton" onClick={handleButton}>Ver calidad de aire</button>
             <Footer />
         </>
