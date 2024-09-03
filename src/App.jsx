@@ -37,6 +37,7 @@ function App() {
     }, []);
 
     const handleButton = () => {
+        console.log(`${baseUrl}/air_pollution?lat=${coordenadas.latitud}&lon=${coordenadas.longitud}&appid=${process.env.API_KEY}`);
         axios
             .get(
                 `${baseUrl}/air_pollution?lat=${coordenadas.latitud}&lon=${coordenadas.longitud}&appid=${process.env.API_KEY}`,
