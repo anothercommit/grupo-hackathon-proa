@@ -50,11 +50,9 @@ function App() {
     };
 
     const renderMainCard = () => {
-        if (datos) {
-            return (
-                <MainCard data={datos} />
-            )
-        }
+        return (
+            <><p>hola</p></>
+        )
     }
 
     return (
